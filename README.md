@@ -20,3 +20,45 @@ quantitatively reason with them.
 Add your answer to this markdown file. [This
 page](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions)
 might help with the notation for mathematical expressions.
+
+From slide 52, It suggests that $\frac{1}{2}$ of the array is a good pivot while $\frac{1}{4}$ of the front and back array each are bad pivots.
+If we always pick from the left most element, we have a $\frac{1}{2}$ chance of it being good and a $\frac{2}{4}$ chance of it being bad thus 50% chance of either a good or bad pivot.
+If we use the median of three method, we will be given 3 possibilites of Left, Middle, and Right elements of the array. Using the same probability of picking a good and bad pivot, we can get L = $\frac{1}{4}$, M = $\frac{1}{2}$ R = $\frac{1}{4}$ where M is the good pivot and L and R are bad pivots.
+For only the bad pivot case:
+$L\cdot L\cdot L$
+
+$L\cdot L\cdot R$
+
+$L\cdot R\cdot L$
+
+$L\cdot R\cdot R$
+
+$R\cdot L\cdot L$
+
+$R\cdot L\cdot R$
+
+$R\cdot R\cdot L$
+
+$R\cdot R\cdot R$
+
+There are 8 possible outcomes, each with a $\frac{1}{64}$ chance of appearing, so $\frac{1}{8}$ chance for the pivot to be strictly bad
+
+Another bad case would be if either L or R are chosen twice and M only once:
+
+$M\cdot L\cdot L$
+
+$L\cdot M\cdot L$
+
+$L\cdot L\cdot M$
+
+$M\cdot R\cdot R$
+
+$M\cdot R\cdot M$
+
+$M\cdot M\cdot R$
+
+There are 6 outcomes where this is possible which creates an outcome of $\frac{1}{32}\cdot 6$
+
+If we combine these two bad pivot outcomes, we can get a probability of $\frac{5}{16}$ So the probability of getting a good pivot will inturn be $\frac{11}{16}$
+
+Which is $68.75%$ of the time to be a good pivot, this is a higher probability than just picking the leftmost one every single time so this means that the median-of-three method is a better method at picking a good pivot as it has a higher chance of choosing a good pivot.
